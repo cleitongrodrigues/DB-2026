@@ -17,6 +17,29 @@ router.get("/", (req: Request, res: Response) => {
     })
 });
 
+router.get("/:id", (req: Request, res: Response) => {
+    const id = Number(req.params.id);
+
+    db.get("SELECT * FROM Generos WHERE id = ?",
+        [id],
+        (err, row) => {
+            if (err){
+                return res.status(500).json({
+                    error: "Erro ao buscar gênero"
+                });
+            }
+
+            if (!row) {
+                return res.status(404).json({
+                    error: "Gênero não encontrado"
+                });
+            }
+
+            res.json(row);
+        }
+    )
+})
+
 router.post("/", (req: Request, res: Response) => {
     const { nome } = req.body;
 
