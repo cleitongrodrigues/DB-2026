@@ -1,31 +1,24 @@
 {
-  "name": "db-2026",
+  "name": "gerenciamento-de-filmes",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cleitongrodrigues/DB-2026.git"
+    "dev": "ts-node src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/cleitongrodrigues/DB-2026/issues"
+  "dependencies": {
+    "express": "^5.2.1"
   },
-  "homepage": "https://github.com/cleitongrodrigues/DB-2026#readme",
   "devDependencies": {
     "@types/express": "^5.0.6",
-    "@types/sqlite3": "^3.1.11",
+    "@types/node": "^25.5.0",
     "ts-node": "^10.9.2",
-    "typescript": "^6.0.2"
-  },
-  "dependencies": {
-    "express": "^5.2.1",
-    "sqlite3": "^6.0.1"
+    "typescript": "^5.9.3"
   }
 }
