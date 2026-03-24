@@ -18,7 +18,13 @@ router.get("/", (req: Request, res: Response) => {
 });
 
 router.post("/", (req: Request, res: Response) => {
-    const { nome } = req.body as Genero;
+    const { nome } = req.body;
+
+    if (!nome || nome.trim() === "") {
+        return res.status(400).json({
+            error: "O campo 'nome' é obrigatório"
+        });
+    }
 
     db.run(`INSERT INTO Generos (nome) VALUES (?)`, 
             [nome],
